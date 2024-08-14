@@ -4,7 +4,7 @@ matplotlib
 seaborn
 scikit-learn
 ipykernel
-catboost
+# catboost
 xgboost
 dill
 FastAPI
