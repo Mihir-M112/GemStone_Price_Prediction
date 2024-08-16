@@ -9,5 +9,8 @@ xgboost
 dill
 FastAPI
 lime
-
+uvicorn
+jinja2
+streamlit
+python-multipart
 #-e .
