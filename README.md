@@ -25,4 +25,50 @@ The goal of this project is to predict the price of a gemstone based on independ
 
 Dataset Source Link : [GemStone Dataset](https://www.kaggle.com/competitions/playground-series-s3e8/data?select=train.csv)
 
+df.head()
+![image](https://github.com/user-attachments/assets/4b62e2b5-beb0-48a2-bf78-59b14bc472ce)
+
+### Model Selection:
+
+CatBoost Regressor (97.8% Accuracy)
+
+## **Approach for the project**
+
+- **Data Ingestion** :
+
+In Data Ingestion phase the data is read as csv.
+Then the data is split into training and testing and saved as csv file.
+
+- **Data Transformation** :
+
+In this phase a ColumnTransformer Pipeline is created.
+for Numeric Variables first SimpleImputer is applied with strategy median , then Standard Scaling is performed on numeric data.
+for Categorical Variables SimpleImputer is applied with most frequent strategy, then One Hot encoding performed , after this data is scaled with Standard Scaler.
+This preprocessor is saved as pickle file namely preprocessor.pkl.
+
+- **Model Training** :
+
+In this phase base model is tested . The best model found was CatBoost Regressor with 97.8% accuracy.
+The model is selected on based on R2 Score Evaluation Metric. The highest R2 Score model selected.
+
+- **Prediction Pipeline** :
+
+This pipeline converts given data into dataframe and has various functions to load pickle files and predict the final results in python.
+
+- **Web Work**:
+  The entire project is shown by using HTML, CSS & FAST API for Web Work.
+
+### How to use this project? 
+
+1. Download the whole project in you system or you can also clone it.
+2. Make a virtual environment uisng the command:  
+    `python -m venv venv`
+3. Activate the virtual environments:  
+    `.\venv\Scripts\activate`
+4. Run the requirements.txt file in venv:  
+    `pip install -r requirements.txt`
+5. Run the below command:   
+    `uvicorn app.main:app --reload`
+
+
 ![image](https://github.com/user-attachments/assets/f234008f-69e1-4882-bff4-7f222c31d9db)
